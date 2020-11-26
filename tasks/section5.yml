@@ -695,7 +695,7 @@
       - rule_5.4.1.5
 
 - name: "SCORED | 5.4.2 | PATCH | Ensure system accounts are secured"
-  command: >
+  shell: >
     for user in `awk -F: '($3 < 1000) {print $1 }' /etc/passwd`; do
      if [ $user != "root" ]; then
       usermod -L $user
